@@ -36,6 +36,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
+            transition: transform 0.3s ease; /* Adiciona uma transição suave */
         }
         /* Contêiner do logotipo */
         .logo-container {
@@ -215,6 +216,25 @@
             transform: translateY(-50%) scale(1.2);
             color: #ccc;
         }
+        /* Estilo para o botão de alternância do cabeçalho */
+        .header-toggle {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 2;
+        }
+        .header-toggle:hover {
+            background-color: #333;
+        }
         /* Media queries para dispositivos móveis */
         @media (max-width: 768px) {
             /* Ajusta o cabeçalho */
@@ -306,6 +326,9 @@
         Seu navegador não suporta o elemento de áudio.
     </audio>
 
+    <!-- Botão de alternância do cabeçalho -->
+    <button class="header-toggle" onclick="toggleHeader()">Open Menu</button>
+
     <header>
         <!-- Contêiner do logotipo -->
         <div class="logo-container">
@@ -357,7 +380,7 @@
         </div>
     </div>
 
-    <!-- Script para controlar o carrossel -->
+    <!-- Script para controlar o carrossel e o cabeçalho -->
     <script>
         let currentIndex = 0; // Índice do item atual no carrossel
 
@@ -392,6 +415,15 @@
             } else {
                 audio.pause();
                 button.textContent = 'Play Music';
+            }
+        }
+
+        function toggleHeader() {
+            const header = document.querySelector('header');
+            if (header.style.transform === 'translateY(-100%)') {
+                header.style.transform = 'translateY(0)';
+            } else {
+                header.style.transform = 'translateY(-100%)';
             }
         }
     </script>
