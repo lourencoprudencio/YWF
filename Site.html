@@ -191,6 +191,75 @@
         .arrow-right {
             right: 10px;
         }
+        /* Media queries para dispositivos móveis */
+        @media (max-width: 768px) {
+            /* Ajusta o cabeçalho */
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            /* Ajusta a posição do menu de navegação */
+            nav {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            /* Ajusta o contêiner do logotipo */
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .logo {
+                font-size: 1.8em;
+            }
+            .tagline {
+                font-size: 0.9em;
+            }
+            /* Ajusta o carrossel de produtos */
+            .carousel {
+                width: 100%;
+            }
+            .carousel-item {
+                min-width: calc(100% - 20px);
+            }
+            .carousel-item img {
+                width: 100%;
+                height: auto;
+            }
+            /* Ajusta o título principal */
+            .content h1 {
+                font-size: 1.5em;
+            }
+        }
+        @media (max-width: 480px) {
+            /* Ajusta ainda mais o cabeçalho para telas menores */
+            header {
+                align-items: center;
+            }
+            .logo {
+                font-size: 1.5em;
+            }
+            .tagline {
+                font-size: 0.8em;
+            }
+            /* Ajusta o título principal para telas menores */
+            .content h1 {
+                font-size: 1.2em;
+            }
+            /* Ajusta o carrossel de produtos */
+            .carousel-item {
+                min-width: calc(100% - 20px);
+            }
+        }
     </style>
 </head>
 <body>
