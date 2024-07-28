@@ -15,7 +15,7 @@
             padding: 0;
             color: #fff;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden; /* Evita a rolagem horizontal */
         }
         /* Estilo para o vídeo de fundo */
         .background-video {
@@ -32,7 +32,7 @@
             background-color: rgba(17, 17, 17, 0.8);
             padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
             align-items: center;
             position: relative;
             z-index: 1;
@@ -42,6 +42,7 @@
         .logo-container {
             display: flex;
             align-items: center;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
         }
         /* Link do logotipo */
         .logo-container a {
@@ -64,18 +65,18 @@
         }
         /* Estilo do menu de navegação */
         nav {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 10px; /* Adiciona espaço acima do menu em dispositivos menores */
         }
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
+            align-items: center;
         }
         nav ul li {
-            margin-left: 20px;
+            margin: 10px 0;
         }
         nav ul li a {
             color: #fff;
@@ -134,7 +135,7 @@
         .carousel {
             position: relative;
             overflow: hidden;
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             max-width: 1200px;
         }
@@ -155,8 +156,9 @@
         }
         /* Estilo para as imagens dos produtos */
         .carousel-item img {
-            width: 270px;
-            height: 270px;
+            width: 100%;
+            height: auto;
+            max-width: 270px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -267,66 +269,51 @@
             font-size: 1.2em;
             color: #fff; /* Texto em branco */
         }
-        /* Media queries para dispositivos móveis */
+
+        /* Responsividade */
         @media (max-width: 768px) {
-            /* Ajusta o cabeçalho */
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px;
-            }
-            /* Ajusta o logotipo e tagline */
             .logo {
-                font-size: 1.8em;
-            }
-            .tagline {
-                font-size: 0.9em;
-            }
-            /* Ajusta o carrossel de produtos */
-            .carousel {
-                width: 100%;
-            }
-            .carousel-item {
-                min-width: calc(100% - 20px);
-            }
-            .carousel-item img {
-                width: 100%;
-                height: auto;
-            }
-            /* Ajusta o título principal */
-            .content h1 {
-                font-size: 1.5em;
-            }
-            /* Ajusta as setas de navegação do carrossel */
-            .arrow-left {
-                left: 0;
-            }
-            .arrow-right {
-                right: 0;
-            }
-        }
-        @media (max-width: 480px) {
-            /* Ajusta ainda mais o cabeçalho para telas menores */
-            header {
-                align-items: center;
-            }
-            .logo {
-                font-size: 1.5em;
+                font-size: 2em;
             }
             .tagline {
                 font-size: 0.8em;
             }
-            /* Ajusta o título principal para telas menores */
-            .content h1 {
-                font-size: 1.2em;
+            nav ul {
+                flex-direction: column; /* Empilha os itens do menu em dispositivos menores */
+                align-items: center;
             }
-            /* Ajusta o carrossel de produtos */
             .carousel-item {
-                min-width: calc(100% - 20px);
+                min-width: 80%;
             }
-            /* Ajusta a seção de parcerias */
-            .partnerships h2 {
+            .carousel-item img {
+                max-width: 100%;
+            }
+            .header-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
                 font-size: 1.5em;
+            }
+            .tagline {
+                font-size: 0.7em;
+            }
+            .content h1 {
+                font-size: 1.5em;
+            }
+            .carousel-item {
+                min-width: 90%;
+            }
+            .carousel-item img {
+                max-width: 100%;
+                height: auto;
+            }
+            .header-toggle {
+                display: block;
+                position: static; /* Remove a posição absoluta em dispositivos muito pequenos */
+                margin: 10px 0;
             }
         }
     </style>
@@ -345,7 +332,7 @@
     </audio>
 
     <!-- Botão de alternância do cabeçalho -->
-    <button class="header-toggle" onclick="toggleHeader()">Open Menu</button>
+    <button class="header-toggle" onclick="toggleHeader()">Toggle Header</button>
 
     <header>
         <!-- Contêiner do logotipo -->
