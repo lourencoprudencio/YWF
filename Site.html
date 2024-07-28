@@ -218,25 +218,6 @@
             transform: translateY(-50%) scale(1.2);
             color: #ccc;
         }
-        /* Estilo para o botão de alternância do cabeçalho */
-        .header-toggle {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-weight: bold;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            z-index: 2;
-        }
-        .header-toggle:hover {
-            background-color: #333;
-        }
         /* Estilo para a seção de parcerias */
         .partnerships {
             padding: 40px 20px; /* Adiciona espaçamento maior ao redor da seção */
@@ -269,6 +250,11 @@
             font-size: 1.2em;
             color: #fff; /* Texto em branco */
         }
+        /* Remove o sublinhado roxo dos links de parcerias */
+        .partner a {
+            text-decoration: none;
+            color: inherit; /* Garante que a cor do texto seja herdada */
+        }
 
         /* Responsividade */
         @media (max-width: 768px) {
@@ -287,9 +273,6 @@
             }
             .carousel-item img {
                 max-width: 100%;
-            }
-            .header-toggle {
-                display: block;
             }
         }
 
@@ -310,11 +293,6 @@
                 max-width: 100%;
                 height: auto;
             }
-            .header-toggle {
-                display: block;
-                position: static; /* Remove a posição absoluta em dispositivos muito pequenos */
-                margin: 10px 0;
-            }
         }
     </style>
 </head>
@@ -330,9 +308,6 @@
         <source src="Backgroundmusic.mp3" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-
-    <!-- Botão de alternância do cabeçalho -->
-    <button class="header-toggle" onclick="toggleHeader()">Toggle Header</button>
 
     <header>
         <!-- Contêiner do logotipo -->
@@ -443,16 +418,6 @@
             } else {
                 audio.pause();
                 button.textContent = 'Play Music';
-            }
-        }
-
-        function toggleHeader() {
-            const header = document.querySelector('header');
-            const headerHeight = header.offsetHeight; // Obtém a altura do cabeçalho
-            if (header.style.transform === `translateY(-${headerHeight}px)`) {
-                header.style.transform = 'translateY(0)';
-            } else {
-                header.style.transform = `translateY(-${headerHeight}px)`;
             }
         }
     </script>
