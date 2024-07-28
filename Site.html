@@ -101,6 +101,21 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+        /* Estilo para o botão de controle de música */
+        .audio-control {
+            cursor: pointer;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .audio-control:hover {
+            background-color: #333;
+        }
         /* Estilo para o conteúdo principal */
         .content {
             padding: 20px;
@@ -183,13 +198,22 @@
             font-size: 2em;
             color: #fff;
             cursor: pointer;
-            z-index: 10;
+            z-index: 2; /* Certifica-se de que as setas estão acima dos itens do carrossel */
+            transition: transform 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            user-select: none;
         }
         .arrow-left {
-            left: 10px;
+            left: 10px; /* Ajusta a posição da seta esquerda */
         }
         .arrow-right {
-            right: 10px;
+            right: 10px; /* Ajusta a posição da seta direita */
+        }
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.2);
+            color: #ccc;
         }
         /* Media queries para dispositivos móveis */
         @media (max-width: 768px) {
@@ -239,6 +263,13 @@
             .content h1 {
                 font-size: 1.5em;
             }
+            /* Ajusta as setas de navegação do carrossel */
+            .arrow-left {
+                left: 0;
+            }
+            .arrow-right {
+                right: 0;
+            }
         }
         @media (max-width: 480px) {
             /* Ajusta ainda mais o cabeçalho para telas menores */
@@ -269,6 +300,12 @@
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
+    <!-- Música de fundo -->
+    <audio id="background-music" autoplay loop>
+        <source src="Backgroundmusic.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
     <header>
         <!-- Contêiner do logotipo -->
         <div class="logo-container">
@@ -287,16 +324,18 @@
                 <li><a href="history.html">Brand History</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="Support.html">Support</a></li>
+                <li><button class="audio-control" onclick="toggleAudio()">Play Music</button></li>
             </ul>
         </nav>
     </header>
+
     <div class="content">
         <h1>Welcome to YWF</h1>
         
         <!-- Carrossel de produtos -->
         <div class="carousel">
             <!-- Setas de navegação do carrossel -->
-            <div class="arrow arrow-left" onclick="moveSlide(-1)">&#9664;</div>
+            <div class="arrow arrow-left" onclick="moveSlide(-1)">&#60;</div>
             <div class="carousel-wrapper">
                 <!-- Item do carrossel -->
                 <div class="carousel-item">
@@ -314,7 +353,7 @@
                 </div>
             </div>
             <!-- Setas de navegação do carrossel -->
-            <div class="arrow arrow-right" onclick="moveSlide(1)">&#9654;</div>
+            <div class="arrow arrow-right" onclick="moveSlide(1)">&#62;</div>
         </div>
     </div>
 
@@ -341,6 +380,19 @@
             // Calcula o deslocamento baseado no índice atual
             const offset = -currentIndex * itemWidth;
             carouselWrapper.style.transform = `translateX(${offset}px)`; // Aplica o deslocamento
+        }
+
+        function toggleAudio() {
+            const audio = document.getElementById('background-music');
+            const button = document.querySelector('.audio-control');
+            
+            if (audio.paused) {
+                audio.play();
+                button.textContent = 'Mute Music';
+            } else {
+                audio.pause();
+                button.textContent = 'Play Music';
+            }
         }
     </script>
 </body>
