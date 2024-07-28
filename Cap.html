@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YWF - Cap</title>
+    <!-- Adiciona o favicon -->
+    <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            background-color: #111; /* Cor de fundo preta */
+        }
+        /* Estilo para o cabeçalho */
+        header {
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        /* Contêiner do logotipo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        /* Link do logotipo */
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Estilo do nome da marca */
+        .logo {
+            font-size: 2.5em;
+            font-family: 'Syne', sans-serif;
+            margin-left: 10px;
+        }
+        /* Estilo da tagline (slogan) */
+        .tagline {
+            margin-left: 10px;
+            font-size: 1em;
+            font-style: italic;
+        }
+        /* Estilo do menu de navegação */
+        nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        /* Estilo para o conteúdo principal */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        /* Estilo para a seção do produto */
+        .product-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Estilo para a imagem do produto */
+        .product-section img {
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        /* Estilo para a descrição do produto */
+        .product-details {
+            margin-left: 40px;
+            max-width: 600px;
+        }
+        .product-details h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .product-details p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .product-details .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        /* Estilo para as informações adicionais */
+        .additional-info {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 8px;
+        }
+        .additional-info h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .additional-info ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .additional-info ul li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Contêiner do logotipo -->
+        <div class="logo-container">
+            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;">
+                <div>
+                    <div class="logo">YWF♻️</div>
+                    <div class="tagline">Young Wild Free</div>
+                </div>
+            </a>
+        </div>
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="Site.html">Home</a></li>
+                <li><a href="history.html">Brand History</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="product-section">
+            <!-- Imagem do produto -->
+            <img src="cap.png" alt="Cap">
+            <!-- Detalhes do produto -->
+            <div class="product-details">
+                <h1>Cap</h1>
+                <p>Our exclusive YWF cap is designed for those who embrace the urban lifestyle. This stylish cap provides a comfortable fit and adds a sleek touch to any outfit.</p>
+                <p class="price">Price: €19.99</p>
+            </div>
+        </div>
+        <!-- Informações adicionais -->
+        <div class="additional-info">
+            <h2>Product Details</h2>
+            <ul>
+                <li>Material: 100% Cotton</li>
+                <li>Adjustable strap for a custom fit</li>
+                <li>Embroidered YWF logo on the front</li>
+                <li>Available in multiple colors</li>
+                <li>Care instructions: Hand wash only</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

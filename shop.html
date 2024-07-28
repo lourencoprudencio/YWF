@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YWF - Shop</title>
+    <!-- Adiciona o favicon -->
+    <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Cor do texto branca */
+            font-family: 'Arial', sans-serif; /* Fonte padrão Arial */
+        }
+        /* Estilo para o cabeçalho */
+        header {
+            background-color: #111; /* Cor de fundo do cabeçalho */
+            padding: 10px 20px; /* Espaçamento interno do cabeçalho */
+            display: flex; /* Usa flexbox para layout */
+            justify-content: space-between; /* Espaço igual entre itens */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            position: relative; /* Posiciona o cabeçalho relativamente ao fluxo normal */
+        }
+        /* Contêiner do logotipo */
+        .logo-container {
+            display: flex; /* Usa flexbox para layout interno */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+        }
+        /* Link do logotipo */
+        .logo-container a {
+            display: flex; /* Usa flexbox para layout */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            color: #fff; /* Cor do texto do logotipo */
+            text-decoration: none; /* Remove o sublinhado do link */
+        }
+        /* Estilo do nome da marca */
+        .logo {
+            font-size: 2.5em; /* Tamanho da fonte */
+            font-family: 'Syne', sans-serif; /* Fonte Syne para o logotipo */
+            margin-left: 10px; /* Espaço à esquerda do logotipo */
+        }
+        /* Estilo da tagline (slogan) */
+        .tagline {
+            margin-left: 10px; /* Espaço à esquerda do slogan */
+            font-size: 1em; /* Tamanho da fonte */
+            font-style: italic; /* Estilo em itálico */
+        }
+        /* Estilo do menu de navegação */
+        nav {
+            position: absolute; /* Posiciona o menu de navegação absolutamente dentro do cabeçalho */
+            left: 50%; /* Alinha horizontalmente ao centro */
+            transform: translateX(-50%); /* Ajusta a posição para o centro exato */
+        }
+        nav ul {
+            list-style: none; /* Remove os marcadores de lista */
+            margin: 0; /* Remove a margem */
+            padding: 0; /* Remove o preenchimento */
+            display: flex; /* Usa flexbox para layout */
+        }
+        nav ul li {
+            margin-left: 20px; /* Espaço à esquerda dos itens do menu */
+        }
+        nav ul li a {
+            color: #fff; /* Cor do texto dos links do menu */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            font-weight: bold; /* Fonte em negrito */
+            font-size: 1em; /* Tamanho da fonte */
+            position: relative; /* Posiciona os itens relativamente */
+            padding: 5px 0; /* Espaçamento interno dos links */
+            transition: color 0.3s ease; /* Transição suave para a cor do texto */
+        }
+        nav ul li a::after {
+            content: ''; /* Adiciona uma linha após o link */
+            position: absolute; /* Posiciona a linha absolutamente */
+            width: 100%; /* Largura da linha */
+            height: 2px; /* Altura da linha */
+            background-color: #fff; /* Cor da linha */
+            bottom: 0; /* Posiciona a linha na parte inferior */
+            left: 0; /* Alinha a linha à esquerda */
+            transform: scaleX(0); /* Inicialmente a linha está invisível */
+            transform-origin: bottom right; /* Origem da transformação na parte inferior direita */
+            transition: transform 0.3s ease; /* Transição suave para a transformação */
+        }
+        nav ul li a:hover::after {
+            transform: scaleX(1); /* Exibe a linha ao passar o mouse */
+            transform-origin: bottom left; /* Ajusta a origem da transformação na parte inferior esquerda */
+        }
+        /* Estilo para o conteúdo principal */
+        .content {
+            padding: 20px; /* Espaçamento interno do conteúdo */
+            text-align: center; /* Alinha o texto ao centro */
+            max-width: 1200px; /* Largura máxima do conteúdo */
+            margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+        }
+        /* Estilo para o título principal */
+        .content h1 {
+            font-size: 2.5em; /* Tamanho da fonte */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            color: #fff; /* Cor do texto */
+        }
+        /* Estilo para a seção de produtos */
+        .products {
+            display: flex; /* Usa flexbox para layout de produtos */
+            flex-wrap: wrap; /* Permite a quebra de linha dos itens */
+            gap: 20px; /* Espaço entre os itens */
+            justify-content: center; /* Alinha os itens horizontalmente ao centro */
+        }
+        .product {
+            background-color: #222; /* Cor de fundo dos produtos */
+            border-radius: 10px; /* Bordas arredondadas */
+            overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do contêiner */
+            width: 300px; /* Largura fixa para uniformidade */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efeito de profundidade */
+            display: flex; /* Usa flexbox para layout interno */
+            flex-direction: column; /* Alinha os itens verticalmente */
+        }
+        .product img {
+            max-width: 100%; /* Largura máxima da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            border-bottom: 2px solid #fff; /* Linha de separação entre a imagem e o restante do conteúdo */
+        }
+        .product .info {
+            padding: 15px; /* Espaçamento interno para a descrição e preço */
+            display: flex; /* Usa flexbox para layout interno */
+            flex-direction: column; /* Alinha os itens verticalmente */
+            justify-content: space-between; /* Espaça os itens uniformemente */
+            flex-grow: 1; /* Permite que a área de informação ocupe o espaço restante */
+        }
+        .product h2 {
+            font-size: 1.5em; /* Tamanho da fonte do título do produto */
+            margin: 10px 0; /* Espaço acima e abaixo do título */
+        }
+        .product p {
+            font-size: 1em; /* Tamanho da fonte da descrição */
+            color: #ccc; /* Cor do texto (cinza claro) */
+            margin: 10px 0; /* Espaço acima e abaixo da descrição */
+        }
+        .product .price {
+            font-size: 1.5em; /* Tamanho da fonte do preço */
+            color: #fff; /* Cor do texto do preço */
+            margin: 10px 0; /* Espaço acima e abaixo do preço */
+        }
+        .product .button {
+            background-color: #000; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            border: none; /* Remove a borda do botão */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            border-radius: 5px; /* Bordas arredondadas do botão */
+            cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+            font-size: 1em; /* Tamanho da fonte do botão */
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+            text-align: center; /* Alinha o texto ao centro */
+        }
+        .product .button:hover {
+            background-color: #444; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Contêiner do logotipo -->
+        <div class="logo-container">
+            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;"> <!-- Logotipo -->
+                <div>
+                    <div class="logo">YWF♻️</div> <!-- Nome da marca -->
+                    <div class="tagline">Young Wild Free</div> <!-- Slogan da marca -->
+                </div>
+            </a>
+        </div>
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="Site.html">Home</a></li> <!-- Página inicial -->
+                <li><a href="history.html">Brand History</a></li> <!-- Página de história da marca -->
+                <li><a href="shop.html">Shop</a></li> <!-- Página da loja -->
+                <li><a href="Support.html">Support</a></li> <!-- Página de suporte -->
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Shop</h1>
+        <!-- Seção de produtos -->
+        <div class="products">
+            <!-- Produto: Cap -->
+            <div class="product">
+                <img src="cap.png" alt="Cap">
+                <div class="info">
+                    <h2>Cap</h2>
+                    <p>Descrição do produto.</p>
+                    <div class="price">€29.99</div>
+                    <button class="button">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Produto: Sweatshirt -->
+            <div class="product">
+                <img src="sweatshirt.png" alt="Sweatshirt">
+                <div class="info">
+                    <h2>Sweatshirt</h2>
+                    <p>Descrição do produto.</p>
+                    <div class="price">€39.99</div>
+                    <button class="button">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Adicione mais produtos aqui se necessário -->
+        </div>
+    </div>
+</body>
+</html>

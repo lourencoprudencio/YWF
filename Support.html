@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - YWF Streetwear Store</title>
+    <!-- Adiciona o favicon -->
+    <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Cor do texto branca */
+            font-family: 'Arial', sans-serif; /* Fonte padrão Arial */
+        }
+        header {
+            background-color: #111; /* Cor de fundo do cabeçalho */
+            padding: 10px 20px; /* Espaçamento interno do cabeçalho */
+            display: flex; /* Usa flexbox para layout */
+            justify-content: space-between; /* Espaço igual entre itens */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            position: relative; /* Posiciona o cabeçalho relativamente ao fluxo normal */
+        }
+        .logo-container {
+            display: flex; /* Usa flexbox para layout interno */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+        }
+        .logo-container a {
+            display: flex; /* Usa flexbox para layout */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            color: #fff; /* Cor do texto do logotipo */
+            text-decoration: none; /* Remove o sublinhado do link */
+        }
+        .logo {
+            font-size: 2.5em; /* Tamanho da fonte */
+            font-family: 'Syne', sans-serif; /* Fonte Syne para o logotipo */
+            margin-left: 10px; /* Espaço à esquerda do logotipo */
+        }
+        .tagline {
+            margin-left: 10px; /* Espaço à esquerda do slogan */
+            font-size: 1em; /* Tamanho da fonte */
+            font-style: italic; /* Estilo em itálico */
+        }
+        nav {
+            position: absolute; /* Posiciona o menu de navegação absolutamente dentro do cabeçalho */
+            left: 50%; /* Alinha horizontalmente ao centro */
+            transform: translateX(-50%); /* Ajusta a posição para o centro exato */
+        }
+        nav ul {
+            list-style: none; /* Remove os marcadores de lista */
+            margin: 0; /* Remove a margem */
+            padding: 0; /* Remove o preenchimento */
+            display: flex; /* Usa flexbox para layout */
+        }
+        nav ul li {
+            margin-left: 20px; /* Espaço à esquerda dos itens do menu */
+        }
+        nav ul li a {
+            color: #fff; /* Cor do texto dos links do menu */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            font-weight: bold; /* Fonte em negrito */
+            font-size: 1em; /* Tamanho da fonte */
+            position: relative; /* Posiciona os itens relativamente */
+            padding: 5px 0; /* Espaçamento interno dos links */
+            transition: color 0.3s ease; /* Transição suave para a cor do texto */
+        }
+        nav ul li a::after {
+            content: ''; /* Adiciona uma linha após o link */
+            position: absolute; /* Posiciona a linha absolutamente */
+            width: 100%; /* Largura da linha */
+            height: 2px; /* Altura da linha */
+            background-color: #fff; /* Cor da linha */
+            bottom: 0; /* Posiciona a linha na parte inferior */
+            left: 0; /* Alinha a linha à esquerda */
+            transform: scaleX(0); /* Inicialmente a linha está invisível */
+            transform-origin: bottom right; /* Origem da transformação na parte inferior direita */
+            transition: transform 0.3s ease; /* Transição suave para a transformação */
+        }
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            transform: scaleX(1); /* Exibe a linha ao passar o mouse ou se estiver ativo */
+            transform-origin: bottom left; /* Ajusta a origem da transformação na parte inferior esquerda */
+        }
+        .content {
+            padding: 20px; /* Espaçamento interno do conteúdo */
+            text-align: center; /* Alinha o texto ao centro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;"> <!-- Logotipo -->
+                <div>
+                    <div class="logo">YWF♻️</div> <!-- Nome da marca -->
+                    <div class="tagline">Young Wild Free</div> <!-- Slogan da marca -->
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Site.html">Home</a></li> <!-- Página inicial -->
+                <li><a href="history.html">Brand History</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Support.html" class="active">Support</a></li> <!-- Página de suporte -->
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Support Page</h1>
+        <p>Here you can find answers to your questions and support information.</p>
+    </div>
+</body>
+</html>
