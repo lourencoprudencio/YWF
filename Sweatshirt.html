@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YWF - Sweatshirt</title>
+    <link rel="icon" href="YWF.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+        }
+        header {
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+        }
+        .logo {
+            font-size: 2.5em;
+            font-family: 'Syne', sans-serif;
+            margin-left: 10px;
+        }
+        .tagline {
+            margin-left: 10px;
+            font-size: 1em;
+            font-style: italic;
+        }
+        nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .product-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-details {
+            flex: 1;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 8px;
+        }
+        .product-details h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .product-details p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .product-details span {
+            font-weight: bold;
+        }
+        .material-info {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;">
+                <div>
+                    <div class="logo">YWF♻️</div>
+                    <div class="tagline">Young Wild Free</div>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Site.html">Home</a></li>
+                <li><a href="history.html">Brand History</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="product-image">
+            <img src="sweatshirt.png" alt="Sweatshirt">
+        </div>
+        <div class="product-details">
+            <h1>Sweatshirt</h1>
+            <p>Price: <span>€49.99</span></p>
+            <p>Stay warm and stylish with our exclusive sweatshirt. Perfect for any occasion, this sweatshirt offers both comfort and fashion.</p>
+            <div class="material-info">
+                <h2>Material Information:</h2>
+                <ul>
+                    <li>50% Cotton</li>
+                    <li>50% Polyester</li>
+                    <li>Machine washable</li>
+                    <li>Available in multiple sizes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
