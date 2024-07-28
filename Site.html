@@ -250,10 +250,15 @@
             font-size: 1.2em;
             color: #fff; /* Texto em branco */
         }
-        /* Remove o sublinhado roxo dos links de parcerias */
-        .partner a {
-            text-decoration: none;
-            color: inherit; /* Garante que a cor do texto seja herdada */
+        /* Remove o sublinhado e a cor padrão dos links dentro dos parceiros */
+        .partners a {
+            text-decoration: none; /* Remove o sublinhado */
+            color: inherit; /* Herda a cor do elemento pai (que é branco) */
+        }
+
+        /* Remove o comportamento de hover padrão para links */
+        .partners a:hover {
+            color: inherit; /* Garante que a cor não mude ao passar o mouse */
         }
 
         /* Responsividade */
@@ -353,6 +358,20 @@
                     <h2>Sweatshirt</h2>
                     <p>Price: <span>€49.99</span></p>
                     <a href="sweatshirt.html" class="explore-button">Explore</a> <!-- Redireciona para sweatshirt.html -->
+                </div>
+                <!-- Novo item do carrossel: T-shirt -->
+                <div class="carousel-item">
+                    <img src="tshirt.png" alt="T-shirt">
+                    <h2>T-shirt</h2>
+                    <p>Price: <span>€24.99</span></p>
+                    <a href="tshirt.html" class="explore-button">Explore</a> <!-- Redireciona para tshirt.html -->
+                </div>
+                <!-- Novo item do carrossel: Puffer -->
+                <div class="carousel-item">
+                    <img src="puffer.png" alt="Puffer">
+                    <h2>Puffer</h2>
+                    <p>Price: <span>€89.99</span></p>
+                    <a href="puffer.html" class="explore-button">Explore</a> <!-- Redireciona para puffer.html -->
                 </div>
             </div>
             <!-- Setas de navegação do carrossel -->
