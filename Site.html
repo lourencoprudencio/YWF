@@ -36,7 +36,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
-            transition: transform 0.3s ease; /* Adiciona uma transição suave */
+            transition: transform 0.5s ease; /* Adiciona uma transição suave */
         }
         /* Contêiner do logotipo */
         .logo-container {
@@ -327,7 +327,7 @@
     </audio>
 
     <!-- Botão de alternância do cabeçalho -->
-    <button class="header-toggle" onclick="toggleHeader()">Open Menu</button>
+    <button class="header-toggle" onclick="toggleHeader()">Toggle Header</button>
 
     <header>
         <!-- Contêiner do logotipo -->
@@ -420,10 +420,11 @@
 
         function toggleHeader() {
             const header = document.querySelector('header');
-            if (header.style.transform === 'translateY(-100%)') {
+            const headerHeight = header.offsetHeight; // Obtém a altura do cabeçalho
+            if (header.style.transform === `translateY(-${headerHeight}px)`) {
                 header.style.transform = 'translateY(0)';
             } else {
-                header.style.transform = 'translateY(-100%)';
+                header.style.transform = `translateY(-${headerHeight}px)`;
             }
         }
     </script>
