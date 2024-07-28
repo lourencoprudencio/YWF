@@ -235,6 +235,38 @@
         .header-toggle:hover {
             background-color: #333;
         }
+        /* Estilo para a seção de parcerias */
+        .partnerships {
+            padding: 40px 20px; /* Adiciona espaçamento maior ao redor da seção */
+            text-align: center;
+        }
+        .partnerships h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-family: 'Syne', sans-serif;
+            color: #fff; /* Texto em branco */
+        }
+        .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .partner {
+            text-align: center;
+            width: 250px; /* Largura das imagens de parcerias */
+        }
+        .partner img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .partner h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #fff; /* Texto em branco */
+        }
         /* Media queries para dispositivos móveis */
         @media (max-width: 768px) {
             /* Ajusta o cabeçalho */
@@ -243,25 +275,7 @@
                 align-items: flex-start;
                 padding: 10px;
             }
-            /* Ajusta a posição do menu de navegação */
-            nav {
-                position: static;
-                transform: none;
-                width: 100%;
-                margin-top: 10px;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            nav ul li {
-                margin: 10px 0;
-            }
-            /* Ajusta o contêiner do logotipo */
-            .logo-container {
-                width: 100%;
-                justify-content: space-between;
-            }
+            /* Ajusta o logotipo e tagline */
             .logo {
                 font-size: 1.8em;
             }
@@ -309,6 +323,10 @@
             /* Ajusta o carrossel de produtos */
             .carousel-item {
                 min-width: calc(100% - 20px);
+            }
+            /* Ajusta a seção de parcerias */
+            .partnerships h2 {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -377,6 +395,29 @@
             </div>
             <!-- Setas de navegação do carrossel -->
             <div class="arrow arrow-right" onclick="moveSlide(1)">&#62;</div>
+        </div>
+    </div>
+
+    <!-- Seção de parcerias -->
+    <div class="partnerships">
+        <h2>Partnerships</h2>
+        <div class="partners">
+            <a href="https://www.instagram.com/goncalo___prudencio/" class="partner" target="_blank">
+                <img src="Goncalo Prudencio.jpg" alt="Gonçalo Prudêncio">
+                <h3>Gonçalo Prudêncio</h3>
+            </a>
+            <a href="https://www.instagram.com/bombasbarbershopywf/" class="partner" target="_blank">
+                <img src="Bom8a5 BarberShop.jpg" alt="Bom8a5 BarberShop">
+                <h3>Bom8a5 BarberShop</h3>
+            </a>
+            <a href="https://www.instagram.com/mr.27_tattoo/" class="partner" target="_blank">
+                <img src="mr.27_tattoo.jpg" alt="mr.27_tattoo">
+                <h3>mr.27_tattoo</h3>
+            </a>
+            <a href="https://www.instagram.com/sustainablemag.eu/" class="partner" target="_blank">
+                <img src="SUSTAINABLE MAGAZINE.jpg" alt="SUSTAINABLE MAGAZINE">
+                <h3>SUSTAINABLE MAGAZINE</h3>
+            </a>
         </div>
     </div>
 
