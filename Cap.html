@@ -13,23 +13,22 @@
         body {
             margin: 0;
             padding: 0;
+            background-color: #111;
             color: #fff;
             font-family: 'Arial', sans-serif;
-            background-color: #111; /* Cor de fundo preta */
         }
         /* Estilo para o cabeçalho */
         header {
             background-color: rgba(17, 17, 17, 0.8);
             padding: 10px 20px;
             display: flex;
-            flex-direction: column; /* Organiza o cabeçalho em coluna */
-            align-items: center; /* Alinha os itens ao centro */
+            align-items: center;
+            justify-content: space-between;
         }
         /* Contêiner do logotipo */
         .logo-container {
             display: flex;
             align-items: center;
-            flex-direction: column; /* Organiza o logotipo e o slogan em coluna */
         }
         /* Link do logotipo */
         .logo-container a {
@@ -40,30 +39,19 @@
         }
         /* Estilo do nome da marca */
         .logo {
-            font-size: 2.5em;
+            font-size: 2em;
             font-family: 'Syne', sans-serif;
             margin-left: 10px;
         }
-        /* Estilo da tagline (slogan) */
-        .tagline {
-            margin-left: 10px;
-            font-size: 1em;
-            font-style: italic;
-        }
-        /* Estilo do menu de navegação */
-        nav {
-            margin-top: 10px; /* Adiciona um espaçamento acima do menu */
-        }
+        /* Menu de navegação */
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column; /* Organiza o menu verticalmente */
-            align-items: center; /* Centraliza os itens do menu horizontalmente */
         }
         nav ul li {
-            margin: 10px 0; /* Espaço acima e abaixo dos itens do menu */
+            margin-left: 20px;
         }
         nav ul li a {
             color: #fff;
@@ -86,87 +74,72 @@
             transform-origin: bottom right;
             transition: transform 0.3s ease;
         }
-        nav ul li a:hover::after,
-        nav ul li a.active::after {
+        nav ul li a:hover::after {
             transform: scaleX(1);
             transform-origin: bottom left;
         }
-        /* Estilo para o conteúdo principal */
+        /* Estilo do conteúdo principal */
         .content {
+            padding: 20px;
+            text-align: center;
+        }
+        /* Estilo do contêiner do produto */
+        .product-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
         }
-        /* Estilo para a seção do produto */
-        .product-section {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px;
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Estilo da imagem do produto */
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
-        /* Estilo para a imagem do produto */
-        .product-section img {
-            max-width: 400px;
-            border-radius: 8px;
+        /* Estilo do título do produto */
+        .product-title {
+            font-size: 2em;
+            margin: 20px 0;
+            font-family: 'Syne', sans-serif;
         }
-        /* Estilo para a descrição do produto */
-        .product-details {
-            margin-left: 40px;
-            max-width: 600px;
+        /* Estilo da descrição do produto */
+        .product-description {
+            font-size: 1em;
+            margin: 10px 0;
+            color: #ccc;
         }
-        .product-details h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        .product-details p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .product-details .price {
+        /* Estilo do preço do produto */
+        .product-price {
             font-size: 1.5em;
             font-weight: bold;
-            margin-bottom: 20px;
+            color: #fff;
+            margin: 10px 0;
         }
-        /* Estilo para as informações adicionais */
-        .additional-info {
-            width: 80%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #222;
-            border-radius: 8px;
+        /* Estilo do botão de compra */
+        .buy-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .additional-info h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
+        .buy-button:hover {
+            background-color: #333;
         }
-        .additional-info ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        /* Estilo para o rodapé */
+        footer {
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 10px 20px;
+            text-align: center;
         }
-        .additional-info ul li {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        /* Consultas de mídia para dispositivos menores */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2em; /* Ajusta o tamanho da fonte do logotipo em telas menores */
-            }
-            .tagline {
-                font-size: 0.9em; /* Ajusta o tamanho da fonte do slogan em telas menores */
-            }
-            .product-details h1 {
-                font-size: 2em; /* Ajusta o tamanho da fonte do título em telas menores */
-            }
-            .product-details p {
-                font-size: 1em; /* Ajusta o tamanho da fonte do parágrafo em telas menores */
-            }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #ccc;
         }
     </style>
 </head>
@@ -174,12 +147,9 @@
     <header>
         <!-- Contêiner do logotipo -->
         <div class="logo-container">
-            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
-                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;">
-                <div>
-                    <div class="logo">YWF♻️</div>
-                    <div class="tagline">Young Wild Free</div>
-                </div>
+            <a href="Site.html">
+                <img src="YWF.png" alt="YWF Logo" style="height: 4em; width: auto;">
+                <div class="logo">YWF♻️</div>
             </a>
         </div>
         <!-- Menu de navegação -->
@@ -192,28 +162,20 @@
             </ul>
         </nav>
     </header>
+
     <div class="content">
-        <div class="product-section">
-            <!-- Imagem do produto -->
-            <img src="cap.png" alt="Cap">
-            <!-- Detalhes do produto -->
-            <div class="product-details">
-                <h1>Cap</h1>
-                <p>Our exclusive YWF cap is designed for those who embrace the urban lifestyle. This stylish cap provides a comfortable fit and adds a sleek touch to any outfit.</p>
-                <p class="price">Price: €19.99</p>
-            </div>
-        </div>
-        <!-- Informações adicionais -->
-        <div class="additional-info">
-            <h2>Product Details</h2>
-            <ul>
-                <li>Material: 100% Cotton</li>
-                <li>Adjustable strap for a custom fit</li>
-                <li>Embroidered YWF logo on the front</li>
-                <li>Available in multiple colors</li>
-                <li>Care instructions: Hand wash only</li>
-            </ul>
+        <!-- Contêiner do produto -->
+        <div class="product-container">
+            <img src="cap.png" alt="Cap" class="product-image">
+            <h1 class="product-title">YWF Cap</h1>
+            <p class="product-description">Our stylish YWF Cap is perfect for any occasion. Made with high-quality materials, it offers comfort and a trendy look. Available in various colors.</p>
+            <div class="product-price">€19.99</div>
+            <a href="shop.html" class="buy-button">Buy Now</a>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 YWF - All Rights Reserved</p>
+    </footer>
 </body>
 </html>
