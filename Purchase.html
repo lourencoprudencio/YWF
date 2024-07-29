@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YWF - Purchase Form</title>
+    <!-- Adiciona o favicon -->
+    <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Cor do texto branca */
+            font-family: 'Arial', sans-serif; /* Fonte padrão Arial */
+        }
+        /* Estilo para o cabeçalho */
+        header {
+            background-color: #111; /* Cor de fundo do cabeçalho */
+            padding: 10px 20px; /* Espaçamento interno do cabeçalho */
+            display: flex; /* Usa flexbox para layout */
+            flex-direction: column; /* Organiza o cabeçalho em coluna */
+            align-items: center; /* Alinha os itens ao centro */
+        }
+        /* Contêiner do logotipo */
+        .logo-container {
+            display: flex; /* Usa flexbox para layout interno */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            flex-direction: column; /* Organiza o logotipo e o slogan em coluna */
+        }
+        /* Link do logotipo */
+        .logo-container a {
+            display: flex; /* Usa flexbox para layout */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            color: #fff; /* Cor do texto do logotipo */
+            text-decoration: none; /* Remove o sublinhado do link */
+        }
+        /* Estilo do nome da marca */
+        .logo {
+            font-size: 2.5em; /* Tamanho da fonte */
+            font-family: 'Syne', sans-serif; /* Fonte Syne para o logotipo */
+            margin-left: 10px; /* Espaço à esquerda do logotipo */
+        }
+        /* Estilo da tagline (slogan) */
+        .tagline {
+            margin-left: 10px; /* Espaço à esquerda do slogan */
+            font-size: 1em; /* Tamanho da fonte */
+            font-style: italic; /* Estilo em itálico */
+        }
+        /* Estilo do menu de navegação */
+        nav {
+            margin-top: 10px; /* Adiciona um espaçamento acima do menu */
+        }
+        nav ul {
+            list-style: none; /* Remove os marcadores de lista */
+            margin: 0; /* Remove a margem */
+            padding: 0; /* Remove o preenchimento */
+            display: flex; /* Usa flexbox para layout */
+            flex-direction: column; /* Alinha o menu verticalmente */
+            align-items: center; /* Centraliza os itens do menu horizontalmente */
+        }
+        nav ul li {
+            margin: 10px 0; /* Espaço acima e abaixo dos itens do menu */
+        }
+        nav ul li a {
+            color: #fff; /* Cor do texto dos links do menu */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            font-weight: bold; /* Fonte em negrito */
+            font-size: 1em; /* Tamanho da fonte */
+            position: relative; /* Posiciona os itens relativamente */
+            padding: 5px 0; /* Espaçamento interno dos links */
+            transition: color 0.3s ease; /* Transição suave para a cor do texto */
+        }
+        nav ul li a::after {
+            content: ''; /* Adiciona uma linha após o link */
+            position: absolute; /* Posiciona a linha absolutamente */
+            width: 100%; /* Largura da linha */
+            height: 2px; /* Altura da linha */
+            background-color: #fff; /* Cor da linha */
+            bottom: 0; /* Posiciona a linha na parte inferior */
+            left: 0; /* Alinha a linha à esquerda */
+            transform: scaleX(0); /* Inicialmente a linha está invisível */
+            transform-origin: bottom right; /* Origem da transformação na parte inferior direita */
+            transition: transform 0.3s ease; /* Transição suave para a transformação */
+        }
+        nav ul li a:hover::after {
+            transform: scaleX(1); /* Exibe a linha ao passar o mouse */
+            transform-origin: bottom left; /* Ajusta a origem da transformação na parte inferior esquerda */
+        }
+        /* Estilo para o conteúdo principal */
+        .content {
+            padding: 20px; /* Espaçamento interno do conteúdo */
+            text-align: center; /* Alinha o texto ao centro */
+            max-width: 1200px; /* Largura máxima do conteúdo */
+            margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+        }
+        /* Estilo para o título principal */
+        .content h1 {
+            font-size: 2.5em; /* Tamanho da fonte */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            color: #fff; /* Cor do texto */
+        }
+        /* Estilo para o aviso de página de teste */
+        .test-warning {
+            font-size: 1.5em; /* Tamanho da fonte do aviso */
+            color: #ff0000; /* Cor do texto vermelho */
+            font-weight: bold; /* Texto em negrito */
+            margin-bottom: 20px; /* Espaço abaixo do aviso */
+        }
+        /* Estilo para o formulário */
+        .form-container {
+            background-color: #222; /* Cor de fundo do formulário */
+            padding: 20px; /* Espaçamento interno do formulário */
+            border-radius: 10px; /* Bordas arredondadas */
+            max-width: 600px; /* Largura máxima do formulário */
+            margin: 0 auto; /* Centraliza o formulário horizontalmente */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efeito de profundidade */
+        }
+        .form-group {
+            margin-bottom: 15px; /* Espaço abaixo dos grupos de formulário */
+        }
+        .form-group label {
+            display: block; /* Exibe o rótulo como bloco */
+            margin-bottom: 5px; /* Espaço abaixo do rótulo */
+            font-weight: bold; /* Rótulo em negrito */
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; /* Largura total dos campos de formulário */
+            padding: 10px; /* Espaçamento interno dos campos */
+            border: 1px solid #555; /* Borda dos campos */
+            border-radius: 5px; /* Bordas arredondadas */
+            background-color: #333; /* Cor de fundo dos campos */
+            color: #fff; /* Cor do texto dos campos */
+        }
+        .form-group input[type="submit"] {
+            background-color: #000; /* Cor de fundo do botão */
+            border: none; /* Remove a borda do botão */
+            cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #444; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Contêiner do logotipo -->
+        <div class="logo-container">
+            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;"> <!-- Logotipo -->
+                <div>
+                    <div class="logo">YWF♻️</div> <!-- Nome da marca -->
+                    <div class="tagline">Young Wild Free</div> <!-- Slogan da marca -->
+                </div>
+            </a>
+        </div>
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="Site.html">Home</a></li> <!-- Página inicial -->
+                <li><a href="history.html">Brand History</a></li> <!-- Página de história da marca -->
+                <li><a href="shop.html">Shop</a></li> <!-- Página da loja -->
+                <li><a href="Support.html">Support</a></li> <!-- Página de suporte -->
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <!-- Aviso de página de teste -->
+        <div class="test-warning">PÁGINA DE TESTE</div>
+        <h1>Purchase Form</h1>
+        <!-- Contêiner do formulário -->
+        <div class="form-container">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product">Product:</label>
+                    <select id="product" name="product" required>
+                        <option value="cap">Cap - €29.99</option>
+                        <option value="sweatshirt">Sweatshirt - €39.99</option>
+                        <option value="puffer">Puffer - €99.99</option>
+                        <option value="tshirt">T-shirt - €19.99</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
