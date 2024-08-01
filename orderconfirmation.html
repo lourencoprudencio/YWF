@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - YWF Streetwear Store</title>
+    <!-- Adiciona o favicon -->
+    <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Cor do texto branca */
+            font-family: 'Arial', sans-serif; /* Fonte padrão Arial */
+            text-align: center; /* Alinha o texto ao centro */
+        }
+        header {
+            background-color: #111; /* Cor de fundo do cabeçalho */
+            padding: 10px 20px; /* Espaçamento interno do cabeçalho */
+        }
+        .logo-container {
+            display: flex; /* Usa flexbox para layout interno */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            flex-direction: column; /* Organiza o logotipo e o slogan em coluna */
+        }
+        .logo-container a {
+            display: flex; /* Usa flexbox para layout */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            color: #fff; /* Cor do texto do logotipo */
+            text-decoration: none; /* Remove o sublinhado do link */
+        }
+        .logo {
+            font-size: 2.5em; /* Tamanho da fonte */
+            font-family: 'Syne', sans-serif; /* Fonte Syne para o logotipo */
+            margin-left: 10px; /* Espaço à esquerda do logotipo */
+        }
+        .tagline {
+            margin-left: 10px; /* Espaço à esquerda do slogan */
+            font-size: 1em; /* Tamanho da fonte */
+            font-style: italic; /* Estilo em itálico */
+        }
+        .content {
+            padding: 20px; /* Espaçamento interno do conteúdo */
+        }
+        .content h1 {
+            font-size: 2.5em; /* Tamanho da fonte do título */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+        }
+        .content p {
+            font-size: 1.2em; /* Tamanho da fonte do parágrafo */
+        }
+        .warning {
+            color: red; /* Cor vermelha para o aviso */
+            font-weight: bold; /* Fonte em negrito */
+            font-size: 1.5em; /* Tamanho da fonte do aviso */
+            margin: 20px 0; /* Espaçamento acima e abaixo do aviso */
+        }
+        /* Consultas de mídia para dispositivos menores */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em; /* Ajusta o tamanho da fonte do logotipo em telas menores */
+            }
+            .tagline {
+                font-size: 0.9em; /* Ajusta o tamanho da fonte do slogan em telas menores */
+            }
+            .content h1 {
+                font-size: 2em; /* Ajusta o tamanho da fonte do título em telas menores */
+            }
+            .content p {
+                font-size: 1em; /* Ajusta o tamanho da fonte do parágrafo em telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;"> <!-- Logotipo -->
+                <div>
+                    <div class="logo">YWF♻️</div> <!-- Nome da marca -->
+                    <div class="tagline">Young Wild Free</div> <!-- Slogan da marca -->
+                </div>
+            </a>
+        </div>
+    </header>
+    <div class="content">
+        <h1>Order Confirmation</h1>
+        <p>Thank you for your purchase! Your order has been successfully placed.</p>
+        <p>Your order number is: <strong id="order-number"></strong></p>
+        <p class="warning">PÁGINA DE TESTE/EXEMPLO</p>
+    </div>
+    <script>
+        // Gera um número de pedido aleatório
+        function generateOrderNumber() {
+            return 'ORD-' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+        }
+        
+        // Define o número do pedido no elemento HTML
+        document.getElementById('order-number').textContent = generateOrderNumber();
+    </script>
+</body>
+</html>

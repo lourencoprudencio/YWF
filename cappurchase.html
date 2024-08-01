@@ -288,7 +288,7 @@
                 </div>
             </div>
             <!-- Formulário de compra -->
-            <form action="process_purchase.php" method="POST">
+            <form onsubmit="return redirectToConfirmation()">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -332,6 +332,13 @@
             const total = (unitPrice * quantity).toFixed(2); // Calcula o total
             totalDisplay.textContent = `${total}€`; // Atualiza o total exibido com euros
         });
+
+        // Função para redirecionar para a página de confirmação
+        function redirectToConfirmation() {
+            // Pode adicionar lógica de validação ou processamento aqui se necessário
+            window.location.href = 'orderconfirmation.html'; // Redireciona para a página de confirmação
+            return false; // Impede o envio real do formulário
+        }
     </script>
 </body>
 </html>

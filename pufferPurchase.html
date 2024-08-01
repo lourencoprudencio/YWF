@@ -288,7 +288,7 @@
                 </div>
             </div>
             <!-- Formulário de compra -->
-            <form action="process_purchase.php" method="POST">
+            <form id="purchase-form">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -333,6 +333,7 @@
         // Seleciona os elementos do DOM
         const quantityInput = document.getElementById('quantity');
         const totalDisplay = document.getElementById('total');
+        const purchaseForm = document.getElementById('purchase-form');
         const unitPrice = 89.99; // Preço da puffer jacket em euros
 
         // Atualiza o total quando a quantidade muda
@@ -340,6 +341,12 @@
             const quantity = quantityInput.value;
             const total = (unitPrice * quantity).toFixed(2); // Calcula o total
             totalDisplay.textContent = `${total}€`; // Atualiza o total exibido com euros
+        });
+
+        // Redireciona para a página de confirmação ao enviar o formulário
+        purchaseForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Evita o envio padrão do formulário
+            window.location.href = 'orderconfirmation.html'; // Redireciona para a página de confirmação
         });
     </script>
 </body>
