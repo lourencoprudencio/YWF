@@ -4,214 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YWF - Sweatshirt Purchase</title>
+    <!-- Ícone da página -->
     <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Fonte Syne do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Estilo para o corpo da página */
         body {
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
+            background-color: #000; /* Cor de fundo preta */
+            color: #fff; /* Cor do texto branca */
+            font-family: 'Arial', sans-serif; /* Fonte padrão Arial */
         }
 
+        /* Estilo para o cabeçalho */
         header {
-            background-color: #111;
-            padding: 10px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #111; /* Cor de fundo do cabeçalho */
+            padding: 10px 20px; /* Espaçamento interno do cabeçalho */
+            display: flex; /* Usa flexbox para layout */
+            flex-direction: column; /* Organiza o cabeçalho em coluna */
+            align-items: center; /* Alinha os itens ao centro */
         }
 
+        /* Contêiner do logotipo */
         .logo-container {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
+            display: flex; /* Usa flexbox para layout interno */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            flex-direction: column; /* Organiza o logotipo e o slogan em coluna */
         }
 
+        /* Link do logotipo */
         .logo-container a {
-            display: flex;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
+            display: flex; /* Usa flexbox para layout */
+            align-items: center; /* Alinha itens verticalmente ao centro */
+            color: #fff; /* Cor do texto do logotipo */
+            text-decoration: none; /* Remove o sublinhado do link */
         }
 
+        /* Estilo do nome da marca */
         .logo {
-            font-size: 2.5em;
-            font-family: 'Syne', sans-serif;
-            margin-left: 10px;
+            font-size: 2.5em; /* Tamanho da fonte */
+            font-family: 'Syne', sans-serif; /* Fonte Syne para o logotipo */
+            margin-left: 10px; /* Espaço à esquerda do logotipo */
         }
 
+        /* Estilo da tagline (slogan) */
         .tagline {
-            margin-left: 10px;
-            font-size: 1em;
-            font-style: italic;
+            margin-left: 10px; /* Espaço à esquerda do slogan */
+            font-size: 1em; /* Tamanho da fonte */
+            font-style: italic; /* Estilo em itálico */
         }
 
+        /* Estilo para o menu de navegação */
         nav {
-            margin-top: 10px;
+            margin-top: 10px; /* Adiciona um espaçamento acima do menu */
         }
 
         nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            list-style: none; /* Remove os marcadores de lista */
+            margin: 0; /* Remove a margem */
+            padding: 0; /* Remove o preenchimento */
+            display: flex; /* Usa flexbox para layout */
+            flex-direction: column; /* Alinha o menu verticalmente */
+            align-items: center; /* Centraliza os itens do menu horizontalmente */
         }
 
         nav ul li {
-            margin: 10px 0;
+            margin: 10px 0; /* Espaço acima e abaixo dos itens do menu */
         }
 
         nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            position: relative;
-            padding: 5px 0;
-            transition: color 0.3s ease;
+            color: #fff; /* Cor do texto dos links do menu */
+            text-decoration: none; /* Remove o sublinhado dos links */
+            font-weight: bold; /* Fonte em negrito */
+            font-size: 1em; /* Tamanho da fonte */
+            position: relative; /* Posiciona os itens relativamente */
+            padding: 5px 0; /* Espaçamento interno dos links */
+            transition: color 0.3s ease; /* Transição suave para a cor do texto */
         }
 
         nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            bottom: 0;
-            left: 0;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            content: ''; /* Adiciona uma linha após o link */
+            position: absolute; /* Posiciona a linha absolutamente */
+            width: 100%; /* Largura da linha */
+            height: 2px; /* Altura da linha */
+            background-color: #fff; /* Cor da linha */
+            bottom: 0; /* Posiciona a linha na parte inferior */
+            left: 0; /* Alinha a linha à esquerda */
+            transform: scaleX(0); /* Inicialmente a linha está invisível */
+            transform-origin: bottom right; /* Origem da transformação na parte inferior direita */
+            transition: transform 0.3s ease; /* Transição suave para a transformação */
         }
 
         nav ul li a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+            transform: scaleX(1); /* Exibe a linha ao passar o mouse */
+            transform-origin: bottom left; /* Ajusta a origem da transformação na parte inferior esquerda */
         }
 
+        /* Estilo para o conteúdo principal */
         .content {
-            padding: 20px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 20px; /* Espaçamento interno do conteúdo */
+            text-align: center; /* Alinha o texto ao centro */
+            max-width: 1200px; /* Largura máxima do conteúdo */
+            margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
         }
 
+        /* Estilo para o título principal */
         .content h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #fff;
+            font-size: 2.5em; /* Tamanho da fonte */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+            color: #fff; /* Cor do texto */
         }
 
+        /* Contêiner para o produto */
         .product-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
+            display: flex; /* Usa flexbox para layout do produto */
+            flex-direction: column; /* Organiza o produto em coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            margin-bottom: 40px; /* Espaço abaixo do contêiner */
         }
 
+        /* Estilo da imagem do produto */
         .product-image {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            width: 100%; /* Largura total do contêiner */
+            max-width: 400px; /* Largura máxima da imagem */
+            border-radius: 10px; /* Bordas arredondadas */
+            margin-bottom: 20px; /* Espaço abaixo da imagem */
         }
 
+        /* Estilo para a descrição do produto */
         .product-description {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #ccc;
-            text-align: center;
-            max-width: 800px;
-            margin-bottom: 20px;
+            font-size: 1.2em; /* Tamanho da fonte da descrição */
+            line-height: 1.6; /* Altura da linha */
+            color: #ccc; /* Cor do texto (cinza claro) */
+            text-align: center; /* Alinha o texto ao centro */
+            max-width: 800px; /* Largura máxima da descrição */
+            margin-bottom: 20px; /* Espaço abaixo da descrição */
         }
 
+        /* Estilo para o formulário de compra */
         .form-container {
-            background-color: #222;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 1s ease;
+            background-color: #222; /* Cor de fundo do formulário */
+            padding: 40px; /* Espaçamento interno do formulário */
+            border-radius: 10px; /* Bordas arredondadas */
+            max-width: 600px; /* Largura máxima do formulário */
+            margin: 0 auto; /* Centraliza o formulário horizontalmente */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra para efeito de profundidade */
+            animation: fadeIn 1s ease; /* Animação de entrada */
         }
 
+        /* Estilo para o resumo do pedido */
         .summary-container {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            color: #fff;
-            text-align: left;
+            background-color: #333; /* Cor de fundo do resumo */
+            padding: 20px; /* Espaçamento interno do resumo */
+            border-radius: 10px; /* Bordas arredondadas */
+            margin-bottom: 30px; /* Espaço abaixo do resumo */
+            color: #fff; /* Cor do texto */
+            text-align: left; /* Alinha o texto à esquerda */
         }
 
+        /* Estilo para o título do resumo */
         .summary-container h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #555;
-            padding-bottom: 10px;
+            font-size: 1.5em; /* Tamanho da fonte do título */
+            margin-bottom: 10px; /* Espaço abaixo do título */
+            border-bottom: 1px solid #555; /* Linha de separação abaixo do título */
+            padding-bottom: 10px; /* Espaçamento abaixo da linha */
         }
 
+        /* Estilo para os itens do resumo */
         .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+            display: flex; /* Usa flexbox para layout dos itens */
+            justify-content: space-between; /* Espaça os itens uniformemente */
+            margin-bottom: 10px; /* Espaço abaixo dos itens */
+            font-size: 1.1em; /* Tamanho da fonte dos itens */
         }
 
+        /* Estilo para os grupos de formulário */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Espaço abaixo dos grupos */
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #ddd;
-            font-size: 1.1em;
+            display: block; /* Exibe o rótulo como bloco */
+            margin-bottom: 10px; /* Espaço abaixo do rótulo */
+            font-weight: bold; /* Fonte em negrito */
+            color: #ddd; /* Cor do texto do rótulo */
+            font-size: 1.1em; /* Tamanho da fonte do rótulo */
         }
 
         .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
+            width: 100%; /* Largura total dos campos */
+            padding: 12px; /* Espaçamento interno dos campos */
+            border: none; /* Remove a borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            background-color: #333; /* Cor de fundo dos campos */
+            color: #fff; /* Cor do texto dos campos */
+            font-size: 1em; /* Tamanho da fonte dos campos */
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            background-color: #444;
-            outline: none;
+            background-color: #444; /* Cor de fundo ao focar */
+            outline: none; /* Remove o contorno */
         }
 
+        /* Estilo para o botão de envio do formulário */
         .form-group input[type="submit"] {
-            background-color: #000;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            background-color: #000; /* Cor de fundo do botão */
+            cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+            font-weight: bold; /* Fonte em negrito */
+            text-transform: uppercase; /* Letras maiúsculas */
+            letter-spacing: 1px; /* Espaçamento entre letras */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para a cor e transformação */
         }
 
         .form-group input[type="submit"]:hover {
-            background-color: #444;
-            transform: scale(1.05);
+            background-color: #444; /* Cor de fundo ao passar o mouse */
+            transform: scale(1.05); /* Aumenta ligeiramente o botão */
         }
 
+        /* Animação de entrada */
         @keyframes fadeIn {
             from {
-                opacity: 0;
-                transform: translateY(20px);
+                opacity: 0; /* Inicialmente invisível */
+                transform: translateY(20px); /* Move para baixo */
             }
             to {
-                opacity: 1;
-                transform: translateY(0);
+                opacity: 1; /* Totalmente visível */
+                transform: translateY(0); /* Volta ao lugar */
             }
         }
     </style>
@@ -219,11 +240,12 @@
 <body>
     <header>
         <div class="logo-container">
+            <!-- Link para o Instagram da marca -->
             <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
-                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;"> <!-- Logotipo da marca -->
                 <div>
-                    <div class="logo">YWF♻️</div>
-                    <div class="tagline">Young Wild Free</div>
+                    <div class="logo">YWF♻️</div> <!-- Nome da marca -->
+                    <div class="tagline">Young Wild Free</div> <!-- Slogan da marca -->
                 </div>
             </a>
         </div>
@@ -239,7 +261,9 @@
     <div class="content">
         <h1>YWF Sweatshirt</h1>
         <div class="product-container">
+            <!-- Imagem do produto -->
             <img src="sweatshirt.png" alt="YWF Sweatshirt" class="product-image">
+            <!-- Descrição do produto -->
             <div class="product-description">
                 <p>
                     Cozy up with the YWF Sweatshirt. Made from high-quality, soft fabric, this sweatshirt combines comfort and style for any casual day. Available in various sizes, it's perfect for lounging or casual outings.
@@ -247,6 +271,7 @@
             </div>
         </div>
         <div class="form-container">
+            <!-- Resumo do pedido -->
             <div class="summary-container">
                 <h2>Order Summary</h2>
                 <div class="summary-item">
@@ -255,13 +280,14 @@
                 </div>
                 <div class="summary-item">
                     <span>Price:</span>
-                    <span>$49.99</span>
+                    <span>49,99€</span> <!-- Atualizado para euros -->
                 </div>
                 <div class="summary-item">
                     <span>Total:</span>
-                    <span id="total">$49.99</span>
+                    <span id="total">49,99€</span> <!-- Total atualizado para euros -->
                 </div>
             </div>
+            <!-- Formulário de compra -->
             <form action="process_purchase.php" method="POST">
                 <div class="form-group">
                     <label for="name">Name:</label>
@@ -304,14 +330,16 @@
     </div>
 
     <script>
+        // Seleciona os elementos do DOM
         const quantityInput = document.getElementById('quantity');
         const totalDisplay = document.getElementById('total');
-        const unitPrice = 49.99; // Preço da sweatshirt
+        const unitPrice = 49.99; // Preço da sweatshirt em euros
 
+        // Atualiza o total quando a quantidade muda
         quantityInput.addEventListener('input', () => {
             const quantity = quantityInput.value;
-            const total = (unitPrice * quantity).toFixed(2);
-            totalDisplay.textContent = `$${total}`;
+            const total = (unitPrice * quantity).toFixed(2); // Calcula o total
+            totalDisplay.textContent = `${total}€`; // Atualiza o total exibido com euros
         });
     </script>
 </body>
