@@ -261,6 +261,32 @@
             color: inherit; /* Garante que a cor não mude ao passar o mouse */
         }
 
+        /* Estilo para a seção de rádio */
+        .radio-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: transparent; /* Remove o fundo escuro */
+        }
+        .radio-section a {
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        .radio-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .radio-section img:hover {
+            transform: scale(1.05);
+        }
+        .radio-section h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+            font-family: 'Syne', sans-serif;
+            color: #fff;
+            text-decoration: none; /* Garante que o texto não tenha sublinhado */
+        }
         /* Responsividade */
         @media (max-width: 768px) {
             .logo {
@@ -400,6 +426,14 @@
                 <h3>SUSTAINABLE MAGAZINE</h3>
             </a>
         </div>
+    </div>
+
+    <!-- Seção de rádio -->
+    <div class="radio-section">
+        <a href="https://open.spotify.com/user/31go5j4quq7wr6quqaojhi4c6fc4?si=086a8dc46ec047ac" target="_blank">
+            <img src="YWF.jpg" alt="YWF Rádio">
+            <h2>YWF Rádio</h2>
+        </a>
     </div>
 
     <!-- Script para controlar o carrossel e o cabeçalho -->
