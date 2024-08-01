@@ -95,7 +95,50 @@
         .content p {
             font-size: 1.2em; /* Tamanho da fonte do parágrafo */
         }
-
+        .form-container {
+            max-width: 800px; /* Largura máxima do formulário */
+            margin: 20px auto; /* Centraliza o formulário horizontalmente */
+            padding: 20px; /* Espaçamento interno do formulário */
+            background-color: #222; /* Cor de fundo do formulário */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra para efeito de profundidade */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Espaço abaixo dos grupos de formulário */
+        }
+        .form-group label {
+            display: block; /* Exibe o rótulo como bloco */
+            margin-bottom: 10px; /* Espaço abaixo do rótulo */
+            font-weight: bold; /* Fonte em negrito */
+            color: #ddd; /* Cor do texto do rótulo */
+            font-size: 1.1em; /* Tamanho da fonte do rótulo */
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; /* Largura total dos campos */
+            padding: 12px; /* Espaçamento interno dos campos */
+            border: none; /* Remove a borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            background-color: #333; /* Cor de fundo dos campos */
+            color: #fff; /* Cor do texto dos campos */
+            font-size: 1em; /* Tamanho da fonte dos campos */
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            background-color: #444; /* Cor de fundo ao focar */
+            outline: none; /* Remove o contorno */
+        }
+        .form-group input[type="submit"] {
+            background-color: #000; /* Cor de fundo do botão */
+            cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+            font-weight: bold; /* Fonte em negrito */
+            text-transform: uppercase; /* Letras maiúsculas */
+            letter-spacing: 1px; /* Espaçamento entre letras */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para a cor e transformação */
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #444; /* Cor de fundo ao passar o mouse */
+            transform: scale(1.05); /* Aumenta ligeiramente o botão */
+        }
         /* Consultas de mídia para dispositivos menores */
         @media (max-width: 768px) {
             .logo {
@@ -135,7 +178,51 @@
     </header>
     <div class="content">
         <h1>Support Page</h1>
-        <p>Here you can find answers to your questions and support information.</p>
+        <p>If you need assistance, you've come to the right place. Below are some helpful resources and ways to contact our support team.</p>
+        
+        <div class="form-container">
+            <h2>Contact Us</h2>
+            <p>Fill out the form below to get in touch with our support team. We aim to respond to all inquiries within 24 hours.</p>
+            <form action="process_contact.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+        </div>
+        
+        <div class="form-container">
+            <h2>Order Tracking</h2>
+            <p>To track your order, please enter your order number below. You can find this number in your order confirmation email.</p>
+            <form action="track_order.php" method="GET">
+                <div class="form-group">
+                    <label for="order-number">Order Number:</label>
+                    <input type="text" id="order-number" name="order_number" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Track Order">
+                </div>
+            </form>
+        </div>
+        
+        <div class="form-container">
+            <h2>Contact Information</h2>
+            <p>If you prefer, you can reach us through the following methods:</p>
+            <p>Email: <a href="mailto:support@ywfstreetwear.com">support@ywfTESTemail.com</a></p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 TESTING Street, TESTING City, TC 12345, Portugal</p>
+        </div>
     </div>
 </body>
 </html>
