@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YWF - Streetwear Store</title>
+    <!-- Adiciona o favicon -->
     <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Estilo para o corpo da página */
         body {
             margin: 0;
             padding: 0;
             color: #fff;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden; /* Evita a rolagem horizontal */
         }
+        /* Estilo para o vídeo de fundo */
         .background-video {
             position: fixed;
             top: 0;
@@ -23,48 +27,56 @@
             object-fit: cover;
             z-index: -1;
         }
+        /* Estilo para o cabeçalho */
         header {
             background-color: rgba(17, 17, 17, 0.8);
             padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
             align-items: center;
             position: relative;
             z-index: 1;
+            transition: transform 0.5s ease; /* Adiciona uma transição suave */
         }
+        /* Contêiner do logotipo */
         .logo-container {
             display: flex;
             align-items: center;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
         }
+        /* Link do logotipo */
         .logo-container a {
             display: flex;
             align-items: center;
             color: #fff;
             text-decoration: none;
         }
+        /* Estilo do nome da marca */
         .logo {
             font-size: 2.5em;
             font-family: 'Syne', sans-serif;
             margin-left: 10px;
         }
+        /* Estilo da tagline (slogan) */
         .tagline {
             margin-left: 10px;
             font-size: 1em;
             font-style: italic;
         }
+        /* Estilo do menu de navegação */
         nav {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 10px; /* Adiciona espaço acima do menu em dispositivos menores */
         }
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
+            align-items: center;
         }
         nav ul li {
-            margin-left: 20px;
+            margin: 10px 0;
         }
         nav ul li a {
             color: #fff;
@@ -91,28 +103,48 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+        /* Estilo para o botão de controle de música */
+        .audio-control {
+            cursor: pointer;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .audio-control:hover {
+            background-color: #333;
+        }
+        /* Estilo para o conteúdo principal */
         .content {
             padding: 20px;
             text-align: center;
             position: relative;
             z-index: 1;
         }
+        /* Estilo para o título principal */
         .content h1 {
             font-size: 2em;
             margin-bottom: 20px;
             color: #fff;
         }
+        /* Estilo para o carrossel de produtos */
         .carousel {
             position: relative;
             overflow: hidden;
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             max-width: 1200px;
         }
+        /* Estilo para o contêiner dos itens do carrossel */
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease;
         }
+        /* Estilo para cada item do carrossel */
         .carousel-item {
             min-width: 300px;
             margin: 0 10px;
@@ -122,24 +154,30 @@
             text-align: center;
             position: relative;
         }
+        /* Estilo para as imagens dos produtos */
         .carousel-item img {
-            width: 270px;
-            height: 270px;
+            width: 100%;
+            height: auto;
+            max-width: 270px;
             object-fit: cover;
             border-radius: 8px;
         }
+        /* Estilo para o título do produto */
         .carousel-item h2 {
             font-size: 1.2em;
             margin: 10px 0;
         }
+        /* Estilo para a descrição do produto */
         .carousel-item p {
             font-size: 1em;
             margin: 5px 0;
         }
+        /* Estilo para o preço do produto */
         .carousel-item span {
             font-weight: bold;
             color: #fff;
         }
+        /* Estilo para o botão de explorar */
         .explore-button {
             display: inline-block;
             margin-top: 10px;
@@ -155,6 +193,7 @@
         .explore-button:hover {
             background-color: #333;
         }
+        /* Estilo para as setas de navegação do carrossel */
         .arrow {
             position: absolute;
             top: 50%;
@@ -162,23 +201,147 @@
             font-size: 2em;
             color: #fff;
             cursor: pointer;
-            z-index: 10;
+            z-index: 2; /* Certifica-se de que as setas estão acima dos itens do carrossel */
+            transition: transform 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            user-select: none;
         }
         .arrow-left {
-            left: 10px;
+            left: 10px; /* Ajusta a posição da seta esquerda */
         }
         .arrow-right {
-            right: 10px;
+            right: 10px; /* Ajusta a posição da seta direita */
+        }
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.2);
+            color: #ccc;
+        }
+        /* Estilo para a seção de parcerias */
+        .partnerships {
+            padding: 40px 20px; /* Adiciona espaçamento maior ao redor da seção */
+            text-align: center;
+        }
+        .partnerships h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-family: 'Syne', sans-serif;
+            color: #fff; /* Texto em branco */
+        }
+        .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .partner {
+            text-align: center;
+            width: 250px; /* Largura das imagens de parcerias */
+        }
+        .partner img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .partner h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #fff; /* Texto em branco */
+        }
+        /* Remove o sublinhado e a cor padrão dos links dentro dos parceiros */
+        .partners a {
+            text-decoration: none; /* Remove o sublinhado */
+            color: inherit; /* Herda a cor do elemento pai (que é branco) */
+        }
+
+        /* Remove o comportamento de hover padrão para links */
+        .partners a:hover {
+            color: inherit; /* Garante que a cor não mude ao passar o mouse */
+        }
+
+        /* Estilo para a seção de rádio */
+        .radio-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: transparent; /* Remove o fundo escuro */
+        }
+        .radio-section a {
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        .radio-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .radio-section img:hover {
+            transform: scale(1.05);
+        }
+        .radio-section h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+            font-family: 'Syne', sans-serif;
+            color: #fff;
+            text-decoration: none; /* Garante que o texto não tenha sublinhado */
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em;
+            }
+            .tagline {
+                font-size: 0.8em;
+            }
+            nav ul {
+                flex-direction: column; /* Empilha os itens do menu em dispositivos menores */
+                align-items: center;
+            }
+            .carousel-item {
+                min-width: 80%;
+            }
+            .carousel-item img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5em;
+            }
+            .tagline {
+                font-size: 0.7em;
+            }
+            .content h1 {
+                font-size: 1.5em;
+            }
+            .carousel-item {
+                min-width: 90%;
+            }
+            .carousel-item img {
+                max-width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Vídeo de fundo -->
     <video class="background-video" autoplay muted loop>
         <source src="Backgroundvideo.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
+    <!-- Música de fundo -->
+    <audio id="background-music" autoplay loop>
+        <source src="Backgroundmusic.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
     <header>
+        <!-- Contêiner do logotipo -->
         <div class="logo-container">
             <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
                 <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;">
@@ -188,56 +351,127 @@
                 </div>
             </a>
         </div>
+        <!-- Menu de navegação -->
         <nav>
             <ul>
-                <li><a href="Site.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="history.html">Brand History</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="Support.html">Support</a></li>
+                <li><button class="audio-control" onclick="toggleAudio()">Play Music</button></li>
             </ul>
         </nav>
     </header>
+
     <div class="content">
         <h1>Welcome to YWF</h1>
+        
+        <!-- Carrossel de produtos -->
         <div class="carousel">
-            <div class="arrow arrow-left" onclick="moveSlide(-1)">&#9664;</div>
+            <!-- Setas de navegação do carrossel -->
+            <div class="arrow arrow-left" onclick="moveSlide(-1)">&#60;</div>
             <div class="carousel-wrapper">
+                <!-- Item do carrossel -->
                 <div class="carousel-item">
                     <img src="cap.png" alt="Cap">
                     <h2>Cap</h2>
                     <p>Price: <span>€19.99</span></p>
-                    <a href="cap.html" class="explore-button">Explore</a>
+                    <a href="cap.html" class="explore-button">Explore</a> <!-- Redireciona para cap.html -->
                 </div>
+                <!-- Item do carrossel -->
                 <div class="carousel-item">
                     <img src="sweatshirt.png" alt="Sweatshirt">
                     <h2>Sweatshirt</h2>
                     <p>Price: <span>€49.99</span></p>
-                    <a href="sweatshirt.html" class="explore-button">Explore</a>
+                    <a href="sweatshirt.html" class="explore-button">Explore</a> <!-- Redireciona para sweatshirt.html -->
+                </div>
+                <!-- Novo item do carrossel: T-shirt -->
+                <div class="carousel-item">
+                    <img src="tshirt.png" alt="T-shirt">
+                    <h2>T-shirt</h2>
+                    <p>Price: <span>€24.99</span></p>
+                    <a href="tshirt.html" class="explore-button">Explore</a> <!-- Redireciona para tshirt.html -->
+                </div>
+                <!-- Novo item do carrossel: Puffer -->
+                <div class="carousel-item">
+                    <img src="puffer.png" alt="Puffer">
+                    <h2>Puffer</h2>
+                    <p>Price: <span>€89.99</span></p>
+                    <a href="puffer.html" class="explore-button">Explore</a> <!-- Redireciona para puffer.html -->
                 </div>
             </div>
-            <div class="arrow arrow-right" onclick="moveSlide(1)">&#9654;</div>
+            <!-- Setas de navegação do carrossel -->
+            <div class="arrow arrow-right" onclick="moveSlide(1)">&#62;</div>
         </div>
     </div>
+
+    <!-- Seção de parcerias -->
+    <div class="partnerships">
+        <h2>Partnerships</h2>
+        <div class="partners">
+            <a href="https://www.instagram.com/goncalo___prudencio/" class="partner" target="_blank">
+                <img src="Goncalo Prudencio.jpg" alt="Gonçalo Prudêncio">
+                <h3>Gonçalo Prudêncio</h3>
+            </a>
+            <a href="https://www.instagram.com/bombasbarbershopywf/" class="partner" target="_blank">
+                <img src="Bom8a5 BarberShop.jpg" alt="Bom8a5 BarberShop">
+                <h3>Bom8a5 BarberShop</h3>
+            </a>
+            <a href="https://www.instagram.com/mr.27_tattoo/" class="partner" target="_blank">
+                <img src="mr.27_tattoo.jpg" alt="mr.27_tattoo">
+                <h3>mr.27_tattoo</h3>
+            </a>
+            <a href="https://www.instagram.com/sustainablemag.eu/" class="partner" target="_blank">
+                <img src="SUSTAINABLE MAGAZINE.jpg" alt="SUSTAINABLE MAGAZINE">
+                <h3>SUSTAINABLE MAGAZINE</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Seção de rádio -->
+    <div class="radio-section">
+        <a href="https://open.spotify.com/user/31go5j4quq7wr6quqaojhi4c6fc4?si=086a8dc46ec047ac" target="_blank">
+            <img src="YWF.jpg" alt="YWF Rádio">
+            <h2>YWF Rádio</h2>
+        </a>
+    </div>
+
+    <!-- Script para controlar o carrossel e o cabeçalho -->
     <script>
-        let currentIndex = 0;
+        let currentIndex = 0; // Índice do item atual no carrossel
 
         function moveSlide(step) {
-            const carouselWrapper = document.querySelector('.carousel-wrapper');
-            const items = document.querySelectorAll('.carousel-item');
-            const totalItems = items.length;
-            const itemWidth = items[0].offsetWidth + 20;
-            const maxIndex = totalItems - 1;
+            const carouselWrapper = document.querySelector('.carousel-wrapper'); // Seleciona o contêiner dos itens
+            const items = document.querySelectorAll('.carousel-item'); // Seleciona todos os itens do carrossel
+            const totalItems = items.length; // Número total de itens
+            const itemWidth = items[0].offsetWidth + 20; // Largura de cada item, incluindo margem
+            const maxIndex = totalItems - 1; // Índice máximo de itens
 
-            currentIndex += step;
+            currentIndex += step; // Atualiza o índice do item atual
 
+            // Se o índice estiver além dos limites, volta ao início ou ao fim
             if (currentIndex > maxIndex) {
                 currentIndex = 0;
             } else if (currentIndex < 0) {
                 currentIndex = maxIndex;
             }
 
+            // Calcula o deslocamento baseado no índice atual
             const offset = -currentIndex * itemWidth;
-            carouselWrapper.style.transform = `translateX(${offset}px)`;
+            carouselWrapper.style.transform = `translateX(${offset}px)`; // Aplica o deslocamento
+        }
+
+        function toggleAudio() {
+            const audio = document.getElementById('background-music');
+            const button = document.querySelector('.audio-control');
+            
+            if (audio.paused) {
+                audio.play();
+                button.textContent = 'Mute Music';
+            } else {
+                audio.pause();
+                button.textContent = 'Play Music';
+            }
         }
     </script>
 </body>
