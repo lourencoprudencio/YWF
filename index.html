@@ -1,370 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Secret - YWF♻️</title>
+    <title>YWF - Streetwear Store</title>
+    <!-- Adiciona o favicon -->
+    <link rel="icon" href="YWF.png" type="image/png">
+    <!-- Importa a fonte Syne do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
-
-        /* Style for the body element */
+        /* Estilo para o corpo da página */
         body {
             margin: 0;
-            font-family: 'Black Ops One', sans-serif; /* Font for the entire page */
+            padding: 0;
             color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-            background: #000; /* Black fallback background */
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden; /* Evita a rolagem horizontal */
         }
-
-        /* Style for the background video */
+        /* Estilo para o vídeo de fundo */
         .background-video {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the video covers the entire area */
-            z-index: -1; /* Places the video behind the content */
+            object-fit: cover;
+            z-index: -1;
         }
-
-        /* Style for the logo */
+        /* Estilo para o cabeçalho */
+        header {
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease; /* Adiciona uma transição suave */
+        }
+        /* Contêiner do logotipo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
+        }
+        /* Link do logotipo */
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Estilo do nome da marca */
         .logo {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px; /* Adjust size for better responsiveness */
-            max-width: 100%;
+            font-size: 2.5em;
+            font-family: 'Syne', sans-serif;
+            margin-left: 10px;
         }
-
-        /* Style for the login container */
-        .login-container {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the login box */
-            padding: 20px; /* Adjust padding for better responsiveness */
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        /* Estilo da tagline (slogan) */
+        .tagline {
+            margin-left: 10px;
+            font-size: 1em;
+            font-style: italic;
+        }
+        /* Estilo do menu de navegação */
+        nav {
+            margin-top: 10px; /* Adiciona espaço acima do menu em dispositivos menores */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Altera para coluna em dispositivos menores */
+            align-items: center;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        /* Estilo para o botão de controle de música */
+        .audio-control {
+            cursor: pointer;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .audio-control:hover {
+            background-color: #333;
+        }
+        /* Estilo para o conteúdo principal */
+        .content {
+            padding: 20px;
             text-align: center;
-            max-width: 90%; /* Adjust width for better responsiveness */
-            width: 400px; /* Set a max width to avoid it becoming too large on bigger screens */
             position: relative;
             z-index: 1;
         }
-
-        /* Style for the 'TOP SECRET' watermark */
-        .login-container::before {
-            content: 'TOP SECRET';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: rgba(255, 0, 0, 0.6);
-            font-size: 1.5em;
-            font-weight: bold;
-            transform: rotate(45deg);
-            opacity: 0.8;
-            z-index: -1;
-        }
-
-        /* Style for the main heading inside the login container */
-        .login-container h1 {
-            margin: 0 0 20px;
-            font-size: 2em; /* Adjust font size for better responsiveness */
-        }
-
-        /* Style for the paragraph inside the login container */
-        .login-container p {
-            margin: 0 0 20px;
-            font-size: 1em; /* Adjust font size for better responsiveness */
-            color: #ddd;
-        }
-
-        /* Style for text inputs inside the login container */
-        .login-container input {
-            width: calc(100% - 20px); /* Adjust width to account for padding */
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-bottom: 2px solid #fff; /* White bottom border */
-            background-color: transparent; /* Transparent background */
-            color: #fff;
-            font-size: 1em; /* Adjust font size for better responsiveness */
-            letter-spacing: 1px;
-        }
-
-        /* Style for the submit button inside the login container */
-        .login-container input[type="submit"] {
-            background-color: transparent;
-            color: #fff;
-            cursor: pointer;
-            transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            padding: 15px;
-        }
-
-        /* Hover effect for the submit button */
-        .login-container input[type="submit"]:hover {
-            color: #000;
-            border: 2px solid #000;
-        }
-
-        /* Style for error messages */
-        .error-message {
-            color: #f00;
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        /* Style for the join whitelist button */
-        #joinWhitelistBtn {
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-            cursor: pointer;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1em;
-            transition: color 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        /* Hover effect for the join whitelist button */
-        #joinWhitelistBtn:hover {
-            color: #000;
-            border: 2px solid #000;
-        }
-
-        /* Animation when the join whitelist button is active */
-        #joinWhitelistBtn.active {
-            animation: buttonExpand 0.3s ease-in-out;
-        }
-
-        /* Keyframes for the button expansion animation */
-        @keyframes buttonExpand {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
-        /* Style for the whitelist form */
-        .whitelist-form {
-            display: none;
-            margin-top: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the whitelist form */
-            padding: 20px;
-            border-radius: 10px;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        /* Style for showing the whitelist form */
-        .whitelist-form.show {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Style for the heading inside the whitelist form */
-        .whitelist-form h2 {
+        /* Estilo para o título principal */
+        .content h1 {
+            font-size: 2em;
             margin-bottom: 20px;
-            font-size: 1.5em; /* Adjust font size for better responsiveness */
-        }
-
-        /* Style for text inputs inside the whitelist form */
-        .whitelist-form input {
-            margin: 10px 0;
-            padding: 10px;
-            border: none;
-            border-bottom: 2px solid #fff; /* White bottom border */
-            background-color: transparent; /* Transparent background */
             color: #fff;
         }
-
-        /* Style for the submit button inside the whitelist form */
-        .whitelist-form input[type="submit"] {
-            background-color: transparent;
-            color: #ff5722;
-            border: 2px solid #ff5722;
-            cursor: pointer;
-            transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
-            padding: 15px;
+        /* Estilo para o carrossel de produtos */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
         }
-
-        /* Hover effect for the submit button in the whitelist form */
-        .whitelist-form input[type="submit"]:hover {
-            color: #ff5722;
-            border: 2px solid #000;
-            background-color: transparent;
+        /* Estilo para o contêiner dos itens do carrossel */
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
         }
-
-        /* Style for privacy note text */
-        .privacy-note {
-            font-size: 0.8em;
-            color: #aaa;
+        /* Estilo para cada item do carrossel */
+        .carousel-item {
+            min-width: 300px;
+            margin: 0 10px;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+        /* Estilo para as imagens dos produtos */
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            max-width: 270px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        /* Estilo para o título do produto */
+        .carousel-item h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        /* Estilo para a descrição do produto */
+        .carousel-item p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+        /* Estilo para o preço do produto */
+        .carousel-item span {
+            font-weight: bold;
+            color: #fff;
+        }
+        /* Estilo para o botão de explorar */
+        .explore-button {
+            display: inline-block;
             margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .explore-button:hover {
+            background-color: #333;
+        }
+        /* Estilo para as setas de navegação do carrossel */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #fff;
+            cursor: pointer;
+            z-index: 2; /* Certifica-se de que as setas estão acima dos itens do carrossel */
+            transition: transform 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            user-select: none;
+        }
+        .arrow-left {
+            left: 10px; /* Ajusta a posição da seta esquerda */
+        }
+        .arrow-right {
+            right: 10px; /* Ajusta a posição da seta direita */
+        }
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.2);
+            color: #ccc;
+        }
+        /* Estilo para a seção de parcerias */
+        .partnerships {
+            padding: 40px 20px; /* Adiciona espaçamento maior ao redor da seção */
+            text-align: center;
+        }
+        .partnerships h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-family: 'Syne', sans-serif;
+            color: #fff; /* Texto em branco */
+        }
+        .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .partner {
+            text-align: center;
+            width: 250px; /* Largura das imagens de parcerias */
+        }
+        .partner img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .partner h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #fff; /* Texto em branco */
+        }
+        /* Remove o sublinhado e a cor padrão dos links dentro dos parceiros */
+        .partners a {
+            text-decoration: none; /* Remove o sublinhado */
+            color: inherit; /* Herda a cor do elemento pai (que é branco) */
         }
 
-        /* Keyframes for the flicker animation */
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        /* Remove o comportamento de hover padrão para links */
+        .partners a:hover {
+            color: inherit; /* Garante que a cor não mude ao passar o mouse */
         }
 
-        /* Flicker animation for input fields and submit button */
-        .login-container input, .login-container input[type="submit"] {
-            animation: flicker 2s infinite;
+        /* Estilo para a seção de rádio */
+        .radio-section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: transparent; /* Remove o fundo escuro */
         }
-
-        /* Responsive styles */
-        @media (max-width: 600px) {
-            .login-container {
-                padding: 15px;
-                width: 90%;
-                max-width: none;
-            }
-
-            .login-container h1 {
-                font-size: 1.8em;
-            }
-
-            .login-container p {
-                font-size: 0.9em;
-            }
-
-            .login-container input, .login-container input[type="submit"] {
-                font-size: 0.9em;
-                padding: 8px;
-            }
-
-            .whitelist-form h2 {
-                font-size: 1.2em;
-            }
-
-            .whitelist-form input, .whitelist-form input[type="submit"] {
-                font-size: 0.9em;
-                padding: 8px;
-            }
-
+        .radio-section a {
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+        .radio-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .radio-section img:hover {
+            transform: scale(1.05);
+        }
+        .radio-section h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+            font-family: 'Syne', sans-serif;
+            color: #fff;
+            text-decoration: none; /* Garante que o texto não tenha sublinhado */
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
             .logo {
-                width: 60px;
+                font-size: 2em;
+            }
+            .tagline {
+                font-size: 0.8em;
+            }
+            nav ul {
+                flex-direction: column; /* Empilha os itens do menu em dispositivos menores */
+                align-items: center;
+            }
+            .carousel-item {
+                min-width: 80%;
+            }
+            .carousel-item img {
+                max-width: 100%;
             }
         }
 
-        @media (max-width: 400px) {
-            .login-container h1 {
+        @media (max-width: 480px) {
+            .logo {
                 font-size: 1.5em;
             }
-
-            .login-container p {
-                font-size: 0.8em;
+            .tagline {
+                font-size: 0.7em;
             }
-
-            .login-container input, .login-container input[type="submit"] {
-                font-size: 0.8em;
-                padding: 6px;
+            .content h1 {
+                font-size: 1.5em;
             }
-
-            .whitelist-form h2 {
-                font-size: 1em;
+            .carousel-item {
+                min-width: 90%;
             }
-
-            .whitelist-form input, .whitelist-form input[type="submit"] {
-                font-size: 0.8em;
-                padding: 6px;
-            }
-
-            .logo {
-                width: 50px;
+            .carousel-item img {
+                max-width: 100%;
+                height: auto;
             }
         }
     </style>
 </head>
-
 <body>
-    <!-- Background video element -->
-    <video autoplay muted loop class="background-video">
-        <source src="backgroundvideo.mp4" type="video/mp4">
-        <!-- Message for browsers that do not support the video tag -->
-        Your browser does not support the video tag.
+    <!-- Vídeo de fundo -->
+    <video class="background-video" autoplay muted loop>
+        <source src="Backgroundvideo.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
     </video>
 
-    <!-- Logo image -->
-    <img src="YWF.png" alt="YWF♻️ Logo" class="logo"> <!-- Brand logo -->
-    <div class="login-container">
-        <h1>YWF♻️ Access</h1> <!-- Main heading -->
-        <p>To unlock exclusive drops, please enter your username and password. This area is top secret.</p> <!-- Instruction text -->
-        <!-- Login form -->
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Enter username" required>
-            <input type="password" id="password" placeholder="Enter password" required>
-            <input type="submit" value="Enter">
-            <div id="error" class="error-message"></div> <!-- Error message display -->
-        </form>
-        <!-- Button to join the whitelist -->
-        <button id="joinWhitelistBtn">Join Whitelist</button>
-        <!-- Whitelist form (hidden by default) -->
-        <div class="whitelist-form" id="whitelistFormContainer">
-            <h2>Join Whitelist</h2>
-            <!-- Whitelist form -->
-            <form id="whitelistForm">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="text" id="firstName" placeholder="First Name" required>
-                <input type="text" id="lastName" placeholder="Last Name" required>
-                <input type="tel" id="phone" placeholder="Phone Number" required>
-                <input type="submit" value="Join">
-            </form>
-            <p class="privacy-note">Your information will not be shared with third parties.</p> <!-- Privacy note -->
+    <!-- Música de fundo -->
+    <audio id="background-music" autoplay loop>
+        <source src="Backgroundmusic.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <header>
+        <!-- Contêiner do logotipo -->
+        <div class="logo-container">
+            <a href="https://www.instagram.com/ywf.eu?igsh=MWcyN2VmZHBrbGx3eQ==" target="_blank">
+                <img src="YWF.png" alt="YWF Logo" style="height: 5.5em; width: auto;">
+                <div>
+                    <div class="logo">YWF♻️</div>
+                    <div class="tagline">Young Wild Free</div>
+                </div>
+            </a>
+        </div>
+        <!-- Menu de navegação -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">Brand History</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Support.html">Support</a></li>
+                <li><button class="audio-control" onclick="toggleAudio()">Play Music</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>Welcome to YWF</h1>
+        
+        <!-- Carrossel de produtos -->
+        <div class="carousel">
+            <!-- Setas de navegação do carrossel -->
+            <div class="arrow arrow-left" onclick="moveSlide(-1)">&#60;</div>
+            <div class="carousel-wrapper">
+                <!-- Item do carrossel -->
+                <div class="carousel-item">
+                    <img src="cap.png" alt="Cap">
+                    <h2>Cap</h2>
+                    <p>Price: <span>€19.99</span></p>
+                    <a href="cap.html" class="explore-button">Explore</a> <!-- Redireciona para cap.html -->
+                </div>
+                <!-- Item do carrossel -->
+                <div class="carousel-item">
+                    <img src="sweatshirt.png" alt="Sweatshirt">
+                    <h2>Sweatshirt</h2>
+                    <p>Price: <span>€49.99</span></p>
+                    <a href="sweatshirt.html" class="explore-button">Explore</a> <!-- Redireciona para sweatshirt.html -->
+                </div>
+                <!-- Novo item do carrossel: T-shirt -->
+                <div class="carousel-item">
+                    <img src="tshirt.png" alt="T-shirt">
+                    <h2>T-shirt</h2>
+                    <p>Price: <span>€24.99</span></p>
+                    <a href="tshirt.html" class="explore-button">Explore</a> <!-- Redireciona para tshirt.html -->
+                </div>
+                <!-- Novo item do carrossel: Puffer -->
+                <div class="carousel-item">
+                    <img src="puffer.png" alt="Puffer">
+                    <h2>Puffer</h2>
+                    <p>Price: <span>€89.99</span></p>
+                    <a href="puffer.html" class="explore-button">Explore</a> <!-- Redireciona para puffer.html -->
+                </div>
+            </div>
+            <!-- Setas de navegação do carrossel -->
+            <div class="arrow arrow-right" onclick="moveSlide(1)">&#62;</div>
         </div>
     </div>
 
+    <!-- Seção de parcerias -->
+    <div class="partnerships">
+        <h2>Partnerships</h2>
+        <div class="partners">
+            <a href="https://www.instagram.com/goncalo___prudencio/" class="partner" target="_blank">
+                <img src="Goncalo Prudencio.jpg" alt="Gonçalo Prudêncio">
+                <h3>Gonçalo Prudêncio</h3>
+            </a>
+            <a href="https://www.instagram.com/bombasbarbershopywf/" class="partner" target="_blank">
+                <img src="Bom8a5 BarberShop.jpg" alt="Bom8a5 BarberShop">
+                <h3>Bom8a5 BarberShop</h3>
+            </a>
+            <a href="https://www.instagram.com/mr.27_tattoo/" class="partner" target="_blank">
+                <img src="mr.27_tattoo.jpg" alt="mr.27_tattoo">
+                <h3>mr.27_tattoo</h3>
+            </a>
+            <a href="https://www.instagram.com/sustainablemag.eu/" class="partner" target="_blank">
+                <img src="SUSTAINABLE MAGAZINE.jpg" alt="SUSTAINABLE MAGAZINE">
+                <h3>SUSTAINABLE MAGAZINE</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Seção de rádio -->
+    <div class="radio-section">
+        <a href="https://open.spotify.com/user/31go5j4quq7wr6quqaojhi4c6fc4?si=086a8dc46ec047ac" target="_blank">
+            <img src="YWF.jpg" alt="YWF Rádio">
+            <h2>YWF Rádio</h2>
+        </a>
+    </div>
+
+    <!-- Script para controlar o carrossel e o cabeçalho -->
     <script>
-        // List of valid username and password combinations
-        const validCredentials = [
-            { username: 'prudencio', password: 'prudencio' },
-            { username: 'user2', password: 'password2' },
-            // Add more combinations here
-        ];
+        let currentIndex = 0; // Índice do item atual no carrossel
 
-        // Event listener for the login form submission
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the default form submission
+        function moveSlide(step) {
+            const carouselWrapper = document.querySelector('.carousel-wrapper'); // Seleciona o contêiner dos itens
+            const items = document.querySelectorAll('.carousel-item'); // Seleciona todos os itens do carrossel
+            const totalItems = items.length; // Número total de itens
+            const itemWidth = items[0].offsetWidth + 20; // Largura de cada item, incluindo margem
+            const maxIndex = totalItems - 1; // Índice máximo de itens
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            currentIndex += step; // Atualiza o índice do item atual
 
-            // Checks if the username and password combination is valid
-            const isValid = validCredentials.some(cred => cred.username === username && cred.password === password);
-
-            if (isValid) {
-                window.location.href = 'mainpage.html'; // Redirects to the main page
-            } else {
-                document.getElementById('error').textContent = 'Incorrect username or password. Please try again.';
+            // Se o índice estiver além dos limites, volta ao início ou ao fim
+            if (currentIndex > maxIndex) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = maxIndex;
             }
-        });
 
-        // Event listener for the join whitelist button click
-        document.getElementById('joinWhitelistBtn').addEventListener('click', function() {
-            const whitelistForm = document.getElementById('whitelistFormContainer');
-            if (whitelistForm.classList.contains('show')) {
-                whitelistForm.classList.remove('show');
-                this.textContent = 'Join Whitelist';
+            // Calcula o deslocamento baseado no índice atual
+            const offset = -currentIndex * itemWidth;
+            carouselWrapper.style.transform = `translateX(${offset}px)`; // Aplica o deslocamento
+        }
+
+        function toggleAudio() {
+            const audio = document.getElementById('background-music');
+            const button = document.querySelector('.audio-control');
+            
+            if (audio.paused) {
+                audio.play();
+                button.textContent = 'Mute Music';
             } else {
-                whitelistForm.classList.add('show');
-                this.textContent = 'Close Whitelist Form';
-                this.classList.add('active');
+                audio.pause();
+                button.textContent = 'Play Music';
             }
-        });
-
-        // Event listener for the whitelist form submission
-        document.getElementById('whitelistForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the default form submission
-
-            // Here you can add code to process whitelist data
-            alert('You have been added to the whitelist.');
-        });
+        }
     </script>
 </body>
-
 </html>
